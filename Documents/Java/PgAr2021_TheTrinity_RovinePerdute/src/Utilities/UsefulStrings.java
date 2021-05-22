@@ -22,7 +22,7 @@
  *
  *
  */
-package it.unibs.fp.the_trinity.Utilities;
+package Utilities;
 
 /**
  * @author Iannella Simone

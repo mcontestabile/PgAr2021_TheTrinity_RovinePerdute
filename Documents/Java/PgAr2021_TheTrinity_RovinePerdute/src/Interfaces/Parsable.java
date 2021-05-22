@@ -1,4 +1,4 @@
-package it.unibs.fp.the_trinity.Interfaces;
+package Interfaces;
 
 import it.unibs.fp.the_trinity.XMLUtilities.*;
 

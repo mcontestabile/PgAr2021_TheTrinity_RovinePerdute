@@ -1,4 +1,4 @@
-package it.unibs.fp.the_trinity.XMLUtilities;
+package XMLUtilities;
 
 /**
  * This is the XMLTag's Class. We had to create it in order

@@ -1,4 +1,4 @@
-package it.unibs.fp.the_trinity.XMLUtilities;
+package XMLUtilities;
 
 import it.unibs.fp.the_trinity.Interfaces.*;
 
