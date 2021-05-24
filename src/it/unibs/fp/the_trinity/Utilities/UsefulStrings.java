@@ -41,7 +41,7 @@ public class UsefulStrings {
     public static final String END_QUESTION = "Volete giocare una nuova partita?(S/N)";
     public static final String WINNER = "\nHA VINTO IL PLAYER %s! COMPLIMENTI\n\n";
 
-
+    public static final String NO_ROUTE_FOUND = "Nessuna strada trovata";
 
     public static final String SELECT_LEVEL = """
 

@@ -1,6 +1,6 @@
 package it.unibs.fp.the_trinity.XMLUtilities;
 
-import it.unibs.fp.interfaces.Writable;
+import it.unibs.fp.the_trinity.Interfaces.Writable;
 
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;

@@ -1,6 +1,6 @@
 package it.unibs.fp.the_trinity.Interfaces;
 
-import it.unibs.fp.utilities.*;
+import it.unibs.fp.the_trinity.XMLUtilities.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
