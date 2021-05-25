@@ -12,8 +12,7 @@ import java.util.ArrayList;
 
 /**
  * This class allows the process of parsing
- * of the input files we have to analyse and
- * use in out Codice Fiscale program.
+ * of the input files we have to analyse.
  */
 public class XMLParser {
     private XMLStreamReader xmlReader = null;

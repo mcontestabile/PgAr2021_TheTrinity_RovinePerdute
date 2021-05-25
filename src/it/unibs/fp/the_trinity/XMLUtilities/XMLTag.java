@@ -3,10 +3,7 @@ package it.unibs.fp.the_trinity.XMLUtilities;
 /**
  * This is the XMLTag's Class. We had to create it in order
  * to build the tags that are used in the Interfaces Parsable and
- * Writable. This Class is useful because, while we have to write
- * the output XML and to focus on the main task of this program,
- * the fiscal code's validation, we always need the tags, which
- * split out each part of fiscal code.
+ * Writable.
  */
 public class XMLTag {
     private String tagName;

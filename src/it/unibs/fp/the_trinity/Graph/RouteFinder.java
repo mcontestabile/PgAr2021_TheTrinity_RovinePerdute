@@ -31,7 +31,7 @@ public class RouteFinder<T extends GraphNode> {
      * @return
      */
     public List<T> findRoute(T from, T to) {
-        Queue<RouteNode> openSet = new PriorityQueue<>(); // TODO Perché errore di "codice inutile e obsoleto"?
+        Queue<RouteNode> openSet = new PriorityQueue<>();
         Map<T, RouteNode<T>> allNodes = new HashMap<>();
 
         RouteNode<T> start = new RouteNode<>(from, null, 0d, targetScorer.computeCost(from, to));

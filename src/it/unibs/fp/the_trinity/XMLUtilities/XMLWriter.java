@@ -23,9 +23,7 @@ public class XMLWriter {
 
     /**
      * it generates a file .xml that has a name
-     * that is a String. The name is given
-     * by the user. As the exercise's text
-     * says, we have to call it outputPersone.
+     * that is a String.
      * @param fileName contains the xml output name.
      */
     public XMLWriter(String fileName) {
