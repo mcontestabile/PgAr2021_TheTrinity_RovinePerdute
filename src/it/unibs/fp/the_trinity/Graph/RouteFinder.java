@@ -31,7 +31,6 @@ public class RouteFinder<T extends GraphNode> {
      * @return
      */
     public List<T> findRoute(T from, T to) {
-        throw new IllegalStateException(UsefulStrings.NO_ROUTE_FOUND);
         Queue<RouteNode> openSet = new PriorityQueue<>(); // TODO Perché errore di "codice inutile e obsoleto"?
         Map<T, RouteNode<T>> allNodes = new HashMap<>();
 
@@ -50,21 +49,22 @@ public class RouteFinder<T extends GraphNode> {
                 } while (current != null);
                 return route;
             }
+            graph.getConnections(next.getCurrent()).forEach(connection -> {
+                RouteNode<T> nextNode = allNodes.getOrDefault(connection, new RouteNode<>(connection));
+                allNodes.put(connection, nextNode);
+
+                double newScore = next.getRouteScore() + nextNodeScorer.computeCost(next.getCurrent(), connection);
+                if (newScore < nextNode.getRouteScore()) {
+                    nextNode.setPrevious(next.getCurrent());
+                    nextNode.setRouteScore(newScore);
+                    nextNode.setEstimatedScore(newScore + targetScorer.computeCost(connection, to));
+                    openSet.add(nextNode);
+                }
+            });
+
+            throw new IllegalStateException(UsefulStrings.NO_ROUTE_FOUND);
         }
-        graph.getConnections(next.getCurrent()).forEach(connection -> {
-            RouteNode<T> nextNode = allNodes.getOrDefault(connection, new RouteNode<>(connection));
-            allNodes.put(connection, nextNode);
-
-            double newScore = next.getRouteScore() + nextNodeScorer.computeCost(next.getCurrent(), connection);
-            if (newScore < nextNode.getRouteScore()) {
-                nextNode.setPrevious(next.getCurrent());
-                nextNode.setRouteScore(newScore);
-                nextNode.setEstimatedScore(newScore + targetScorer.computeCost(connection, to));
-                openSet.add(nextNode);
-            }
-        });
-
-        throw new IllegalStateException(UsefulStrings.NO_ROUTE_FOUND);
+        return null;
     }
 }
 
