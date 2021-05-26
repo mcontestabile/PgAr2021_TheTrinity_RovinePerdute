@@ -3,7 +3,7 @@ package it.unibs.fp.the_trinity.Interfaces;
 /**
  * We represent our individual nodes with this interface called GraphNode.
  *
- * @Author Contestabile Martina
+ * @author Contestabile Martina
  */
 public interface GraphNode {
     /* Each of our nodes must have an ID.

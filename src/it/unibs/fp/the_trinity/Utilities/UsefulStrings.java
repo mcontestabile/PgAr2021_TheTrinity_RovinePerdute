@@ -32,7 +32,7 @@ public class UsefulStrings {
     public static final String DOUBLE_LINE = FRAME + "\n" + FRAME + "\n";
 
     public static final String NO_ROUTE_FOUND = "Nessuna strada trovata";
-
+    public static final String NO_NODE_FOUND = "Nessun nodo corrispondente all'ID";
 
 
     public static final String[] ERROR_STRINGS = {

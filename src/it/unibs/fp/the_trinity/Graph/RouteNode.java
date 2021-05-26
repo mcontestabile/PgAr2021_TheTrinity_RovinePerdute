@@ -12,7 +12,7 @@ import it.unibs.fp.the_trinity.Interfaces.GraphNode;
  * @param <T>
  *
  *
- * @Author Contestabile Martina
+ * @author Contestabile Martina
  */
 public class RouteNode<T extends GraphNode> implements Comparable<RouteNode> {
     private final T current;

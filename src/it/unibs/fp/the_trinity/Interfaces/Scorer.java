@@ -8,7 +8,7 @@ package it.unibs.fp.the_trinity.Interfaces;
  * then get a score for traveling between them.
  * @param <T> generic class.
  *
- * @Author Contestabile Martina
+ * @author Contestabile Martina
  */
 public interface Scorer<T extends GraphNode> {
     double computeCost(T from, T to);
