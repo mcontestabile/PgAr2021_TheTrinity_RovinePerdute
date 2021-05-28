@@ -7,10 +7,10 @@ import it.unibs.fp.the_trinity.xml_utils.XMLTag;
 import java.util.ArrayList;
 
 public class Route implements Writable {
-    String team;
-    String cost;
-    String cities;
-    ArrayList<City> citiesList;
+    private String team;
+    private String cost;
+    private String cities;
+    private ArrayList<City> citiesList;
     public static final String START_STRING = "route";
     private static final ArrayList<String> ATTRIBUTE_STRINGS = new ArrayList<>();
 
