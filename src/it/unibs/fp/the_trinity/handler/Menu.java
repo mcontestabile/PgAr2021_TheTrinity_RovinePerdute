@@ -10,7 +10,6 @@ import it.unibs.fp.the_trinity.xml_utils.XMLWriter;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.File;
-import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,12 +24,12 @@ public class Menu {
     private final int AUTHOR_CODE = 3;
     private final int END_CODE = 0;
 
-    public static final int TEST_5 = 1;
-    public static final int TEST_12 = 2;
-    public static final int TEST_50 = 3;
-    public static final int TEST_200 = 4;
-    public static final int TEST_2000 = 5;
-    public static final int TEST_10000 = 6;
+    private final int TEST_5 = 1;
+    private final int TEST_12 = 2;
+    private final int TEST_50 = 3;
+    private final int TEST_200 = 4;
+    private final int TEST_2000 = 5;
+    private final int TEST_10000 = 6;
 
     private int state;
     private int select;
