@@ -20,9 +20,10 @@ public class RouteFinder<T extends GraphNode> {
     /**
      * Constructor.
      *
-     * @param graph          the world's map.
-     * @param nextNodeScorer the closest node's score.
-     * @param targetScorer   //TODO
+     * @param graph          the world's map
+     * @param nextNodeScorer represent the way that we use to compute scorer between nodes
+     * @param targetScorer   represent the way that we use to compute scorer between one node
+     *                       and the destination
      */
     public RouteFinder(Graph<T> graph, Scorer<T> nextNodeScorer, Scorer<T> targetScorer) {
         this.graph = graph;

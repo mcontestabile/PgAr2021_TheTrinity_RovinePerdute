@@ -17,8 +17,8 @@ public interface Scorer<T extends GraphNode> {
     /**
      * This method computes the cost for the trip.
      *
-     * @param array
-     * @return
+     * @param array needed to compute route cost
+     * @return route cost
      */
     default double computeRouteCost(T[] array) {
         double cost = 0;

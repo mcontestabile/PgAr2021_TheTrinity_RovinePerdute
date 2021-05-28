@@ -32,6 +32,9 @@ public class City implements Parsable, GraphNode {
         ATTRIBUTE_STRINGS.add("to");
     }
 
+    /**
+     * Method needed because {@code City} implements Parsable.
+     */
     @Override
     public void setSetters() {
         setters.put(ATTRIBUTE_STRINGS.get(0), this::setId);

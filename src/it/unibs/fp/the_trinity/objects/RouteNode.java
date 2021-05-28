@@ -59,10 +59,6 @@ class RouteNode<T extends GraphNode> implements Comparable<RouteNode<T>> {
         return routeScore;
     }
 
-    double getEstimatedScore() {
-        return estimatedScore;
-    }
-
     //Setters
     void setPrevious(T previous) {
         this.previous = previous;

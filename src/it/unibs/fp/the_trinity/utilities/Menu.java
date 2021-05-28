@@ -29,6 +29,9 @@ public class Menu implements Runnable {
         frameLength = 0;
     }
 
+    /**
+     * Starts the execution of {@code Menu}.
+     */
     @Override
     public void run() {
         generateFrameLength();
@@ -54,6 +57,9 @@ public class Menu implements Runnable {
         } while (!choice.equals(endKey));
     }
 
+    /**
+     * Prints {@link #itemsMap} values that represent options menu.
+     */
     private void printOptions() {
         for (String key : itemsMap.keySet()) {
             System.out.println("[" + key + "] " + itemsMap.get(key).getText());
@@ -78,7 +84,7 @@ public class Menu implements Runnable {
     }
 
     /**
-     * This method allows to change endKey value. Return {@code true} if {@link #itemsMap}
+     * This method allows to change {@link #endKey} value. Return {@code true} if {@link #itemsMap}
      * does not contain a key with the same value.
      *
      * @param newEndKey new endKey value
@@ -92,17 +98,32 @@ public class Menu implements Runnable {
         return true;
     }
 
+    /**
+     * This method allows to change {@link #enterRepetitions} value.
+     *
+     * @param enterRepetitions new {@link #enterRepetitions} number
+     * @return {@code true} if enterRepetitions was replaced;
+     *         {@code false} otherwise
+     */
     public boolean changeEnterRepetitions(int enterRepetitions) {
         if (enterRepetitions < 0) return false;
         this.enterRepetitions = enterRepetitions;
         return true;
     }
 
+    /**
+     * This method allows to change {@link #enterRepetitions} value.
+     *
+     * @param text new {@link #exit} text
+     */
     public void changeExitText(String text) {
         exit = text;
         generateFrameLength();
     }
 
+    /**
+     * This method generates {@link #frameLength}.
+     */
     private void generateFrameLength() {
         int t;
         for (String key : itemsMap.keySet()) {

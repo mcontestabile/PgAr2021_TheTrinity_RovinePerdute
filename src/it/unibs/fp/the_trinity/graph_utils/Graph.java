@@ -33,7 +33,7 @@ public class Graph<T extends GraphNode> {
     }
 
     /**
-     * Returns the city's name associated to the city's ID.
+     * Returns the city associated to the city's ID.
      *
      * @param id the city's ID.
      * @return the city's name.
@@ -42,6 +42,12 @@ public class Graph<T extends GraphNode> {
         return nodes.get(id);
     }
 
+    /**
+     * Return all nodes connected to {@code node}.
+     *
+     * @param node to be checked
+     * @return all nodes connected to {@code node}.
+     */
     public Set<T> getConnections(T node) {
         return connections.get(node.getId()).stream()
                 .map(this::getNode)

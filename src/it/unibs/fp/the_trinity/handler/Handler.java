@@ -10,6 +10,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
+ * {@code Rovine Perdute} handler class.
+ * Contains menus with all useful options.
+ *
  * @author Baresi Marco
  * @author Iannella Simone
  */
@@ -18,12 +21,18 @@ public class Handler {
     private final String START_ID = "0";
     private String outPath;
 
+    /**
+     * This method allows the main menu's start.
+     */
     public void start() {
         System.out.print(UsefulStrings.WELCOME_MESSAGE);
         Time.pause(Time.MEDIUM_MILLIS_PAUSE);
         startMenu();
     }
 
+    /**
+     * This is the main menu.
+     */
     public void startMenu() {
         MenuItem[] items = new MenuItem[] {
               new MenuItem(UsefulStrings.FIRST_MENU_OPTION, this::mainTask),
@@ -38,6 +47,9 @@ public class Handler {
         System.out.println("\n" + UsefulStrings.getGoodbyeString());
     }
 
+    /**
+     * This method allows the cities number's choice.
+     */
     public void mainTask() {
         Runnable test5Method = () -> {
             filePath = UsefulStrings.TEST_5_PATH;
@@ -84,11 +96,18 @@ public class Handler {
         menu.run();
     }
 
+    /**
+     * This method generates a random joke.
+     */
     public void funTask() {
         System.out.println("\n" + UsefulStrings.getHilariousJoke());
         DataInput.readString(UsefulStrings.ENTER_TO_CONTINUE);
     }
 
+    /**
+     * Thi method shows the programmers' names
+     * and their helpful assistants.
+     */
     public void authorTask() {
         System.out.println(UsefulStrings.AUTHORS);
         Time.pause(Time.LOW_MILLIS_PAUSE);
@@ -96,6 +115,9 @@ public class Handler {
         DataInput.readString(UsefulStrings.ENTER_TO_CONTINUE);
     }
 
+    /**
+     * This methods catches the exceptions.
+     */
     public void tryManageMain() {
         try {
             manageMainTask();
@@ -104,12 +126,15 @@ public class Handler {
         }
     }
 
+    /**
+     * This method allows the pathfinding, using
+     * RouteFinder's class.
+     */
     public void manageMainTask() throws XMLStreamException {
         XMLParser parser = new XMLParser(filePath);
         ArrayList<City> cities = parser.parseXML(City.class);
         ArrayList<City> tonatiuh;
         ArrayList<City> metztli;
-
         HashMap<String, City> citiesMap = new HashMap<>();
         Map<String, Set<String>> connections = new HashMap<>();
 
@@ -118,19 +143,19 @@ public class Handler {
             connections.put(c.getId(), new HashSet<>(c.getConnections()));
         }
 
-        Graph<City> world = new Graph<>(citiesMap, connections);
-        RouteFinder<City> routeFinder = new RouteFinder<>(world, new TonatiuhScorer(), new TonatiuhScorer());
+        Graph<City> citiesGraph = new Graph<>(citiesMap, connections);
+        RouteFinder<City> routeFinder = new RouteFinder<>(citiesGraph, new TonatiuhScorer(), new TonatiuhScorer());
 
         double startTime = System.currentTimeMillis();
-        List<City> route = routeFinder.findRoute(world.getNode(START_ID), world.getNode(cities.size()-1 + ""));
-        tonatiuh = new ArrayList<>(route);
+        List<City> routeT = routeFinder.findRoute(citiesGraph.getNode(START_ID), citiesGraph.getNode(cities.size()-1 + ""));
+        tonatiuh = new ArrayList<>(routeT);
         System.out.print(UsefulStrings.getDestinationMessage(UsefulStrings.FIRST_TEAM_NAME));
 
-        routeFinder = new RouteFinder<>(world, new MetztliScorer(), new MetztliScorer());
-        List<City> route1 = routeFinder.findRoute(world.getNode(START_ID), world.getNode(cities.size()-1 + ""));
-        double endTime = ((System.currentTimeMillis() - startTime) / 1000);
-        metztli = new ArrayList<>(route1);
+        routeFinder = new RouteFinder<>(citiesGraph, new MetztliScorer(), new MetztliScorer());
+        List<City> routeM = routeFinder.findRoute(citiesGraph.getNode(START_ID), citiesGraph.getNode(cities.size()-1 + ""));
+        metztli = new ArrayList<>(routeM);
         System.out.println(UsefulStrings.getDestinationMessage(UsefulStrings.SECOND_TEAM_NAME));
+        double endTime = ((System.currentTimeMillis() - startTime) / 1000);
 
         // System.out.println(route.stream().map(City::getName).collect(Collectors.toList()));
         // System.out.println(route1.stream().map(City::getName).collect(Collectors.toList()));
@@ -140,13 +165,16 @@ public class Handler {
 
         XMLWriter writer = new XMLWriter(outPath);
         ArrayList<Route> routes = new ArrayList<>();
-        routes.add(new Route(UsefulStrings.FIRST_TEAM_NAME, String.format("%.2f", (new TonatiuhScorer()).computeRouteCost(route.toArray(new City[0]))), tonatiuh.size() + "", tonatiuh));
-        routes.add(new Route(UsefulStrings.SECOND_TEAM_NAME, String.format("%.2f", (new MetztliScorer()).computeRouteCost(route1.toArray(new City[0]))), metztli.size() + "", metztli));
+        routes.add(new Route(UsefulStrings.FIRST_TEAM_NAME, String.format("%.2f", (new TonatiuhScorer()).computeRouteCost(routeT.toArray(new City[0]))), tonatiuh.size() + "", tonatiuh));
+        routes.add(new Route(UsefulStrings.SECOND_TEAM_NAME, String.format("%.2f", (new MetztliScorer()).computeRouteCost(routeM.toArray(new City[0]))), metztli.size() + "", metztli));
 
         writer.writeArrayListXML(routes, UsefulStrings.OUTER_TAG);
         System.out.println(UsefulStrings.getFlexElapsedTime(endTime));
+
         DataInput.readString(UsefulStrings.ENTER_TO_CONTINUE);
     }
+
+
 
 
 }

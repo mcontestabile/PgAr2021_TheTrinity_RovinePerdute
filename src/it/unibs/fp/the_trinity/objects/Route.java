@@ -6,6 +6,11 @@ import it.unibs.fp.the_trinity.xml_utils.XMLTag;
 
 import java.util.ArrayList;
 
+/**
+ * This class is used to store {@code Route} of a team.
+ *
+ * @author Baresi Marco
+ */
 public class Route implements Writable {
     private String team;
     private String cost;
@@ -14,12 +19,20 @@ public class Route implements Writable {
     public static final String START_STRING = "route";
     private static final ArrayList<String> ATTRIBUTE_STRINGS = new ArrayList<>();
 
+    /*
+     * The keyword static is used to create methods that will exist independently
+     * of any instances created for the class. Static methods do not use
+     * any instance variables of any object of the class they are defined in.
+     */
     static {
         ATTRIBUTE_STRINGS.add("team");
         ATTRIBUTE_STRINGS.add("cost");
         ATTRIBUTE_STRINGS.add("cities");
     }
 
+    /**
+     * {@code Route} constructor.
+     */
     public Route(String team, String cost, String cities, ArrayList<City> citiesList) {
         this.team = team;
         this.cost = cost;

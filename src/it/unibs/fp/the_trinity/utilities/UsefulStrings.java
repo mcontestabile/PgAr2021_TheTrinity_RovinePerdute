@@ -4,9 +4,6 @@ package it.unibs.fp.the_trinity.utilities;
  * @author Iannella Simone
  */
 public class UsefulStrings {
-    //public static final String FRAME = "‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗‗";
-    //public static final String DOUBLE_LINE = FRAME + "\n" + FRAME + "\n";
-
     public static final String TEST_5_PATH = "test_file//PgAr_Map_5.xml";
     public static final String TEST_12_PATH = "test_file//PgAr_Map_12.xml";
     public static final String TEST_50_PATH = "test_file//PgAr_Map_50.xml";
@@ -21,14 +18,14 @@ public class UsefulStrings {
     public static final String END_MENU_OPTION = "Termina il divertimento";
 
 
-    public static final String MAIN_TASK_REQUEST = "Indica su quante citta' eseguire il test:";
+    public static final String MAIN_TASK_REQUEST = "Scegli il test da eseguire:";
 
-    public static final String TEST_5 = "5 cities";
-    public static final String TEST_12 = "12 cities";
-    public static final String TEST_50 = "50 cities";
-    public static final String TEST_200 = "200 cities";
-    public static final String TEST_2000 = "2000 cities";
-    public static final String TEST_10000 = "10000 cities";
+    public static final String TEST_5 = "Test su 5 citta'";
+    public static final String TEST_12 = "Test su 12 citta'";
+    public static final String TEST_50 = "Test su 50 citta'";
+    public static final String TEST_200 = "Test su 200 citta'";
+    public static final String TEST_2000 = "Test su 2000 citta'";
+    public static final String TEST_10000 = "Test su 10000 citta'";
     public static final String BACK_MENU_OPTION = "Menu principale divertente";
 
     public static final String FIRST_TEAM_NAME = "Tonatiuh";
@@ -62,7 +59,7 @@ public class UsefulStrings {
     public static final String ENTER_TO_CONTINUE = "\nPremi invio per continuare...";
 
     public static final String DESTINATION_MESSAGE = "Trovata la destinazione per il team %s!\n";
-    public static final String FLEX_ELAPSED_TIME = "\nIl tempo impiegato per l'elaborazione del percorso è stato di soli %.3f secondi! \uD83C\uDFC6";
+    public static final String FLEX_ELAPSED_TIME = "\nIl tempo impiegato per l'elaborazione del percorso e' stato di soli %.3f secondi! \uD83C\uDFC6";
 
     public static final String WELCOME_MESSAGE = """
              
@@ -123,10 +120,6 @@ public class UsefulStrings {
             "E' stato un bell'esame, a prostata.",
             "ARI ARI ARI ARI ARI ARI Arrivederci!"
     };
-
-    public static String getMainMenu() {
-        return MENU_OPTION_REQUEST + FIRST_MENU_OPTION + SECOND_MENU_OPTION + THIRD_MENU_OPTION + END_MENU_OPTION;
-    }
 
     public static String getDestinationMessage(String teamName) {
         if (teamName.equals(FIRST_TEAM_NAME))

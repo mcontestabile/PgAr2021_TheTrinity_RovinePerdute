@@ -2,6 +2,11 @@ package it.unibs.fp.the_trinity.objects;
 
 import it.unibs.fp.the_trinity.graph_utils.Scorer;
 
+/**
+ * {@code TonatiuhScorer} class computes the cost for the Tonatiuh team.
+ *
+ * @author Baresi Marco
+ */
 public class TonatiuhScorer implements Scorer<City> {
     private static final int SQUARE = 2;
 
