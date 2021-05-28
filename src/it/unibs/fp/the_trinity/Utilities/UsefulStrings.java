@@ -1,27 +1,3 @@
-/*
- * Copyright (c) 2021, The Trinity and/or its affiliates. All rights reserved.
- * THE TRINITY PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- */
 package it.unibs.fp.the_trinity.utilities;
 
 import java.nio.file.Path;
@@ -103,9 +79,6 @@ public class UsefulStrings {
 
     public static final String DESTINATION_MESSAGE = "Trovata la destinazione per il team %s!\n";
     public static final String FLEX_ELAPSED_TIME = "\nIl tempo impiegato per l'elaborazione del percorso è stato di soli %.3f secondi!";
-
-    public static final String NO_ROUTE_FOUND = "Nessuna strada trovata";
-    public static final String NO_NODE_FOUND = "Nessun nodo corrispondente all'ID";
 
     public static final String WELCOME_MESSAGE = """
              

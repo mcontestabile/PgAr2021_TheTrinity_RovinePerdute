@@ -161,6 +161,9 @@ public class Menu {
         System.out.println(route1.stream().map(City::getName).collect(Collectors.toList()));
         System.out.println(UsefulStrings.FRAME);
         File routesDir = new File(UsefulStrings.OUTER_TAG);
+        if (!routesDir.exists()){
+            routesDir.mkdirs();
+        }
         XMLWriter writer = new XMLWriter(OUT_PATH);
 
         ArrayList<Route> routes = new ArrayList<>();
