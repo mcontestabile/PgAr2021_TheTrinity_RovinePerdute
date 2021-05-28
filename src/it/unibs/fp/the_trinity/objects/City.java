@@ -2,7 +2,6 @@ package it.unibs.fp.the_trinity.objects;
 
 import it.unibs.fp.the_trinity.graph_utils.GraphNode;
 import it.unibs.fp.the_trinity.xml_utils.Parsable;
-import it.unibs.fp.the_trinity.xml_utils.Writable;
 
 import java.util.ArrayList;
 
