@@ -1,6 +1,4 @@
-package it.unibs.fp.the_trinity.XMLUtilities;
-
-import it.unibs.fp.the_trinity.Interfaces.*;
+package it.unibs.fp.the_trinity.xml_utils;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -13,12 +11,16 @@ import java.util.ArrayList;
 /**
  * This class allows the process of parsing
  * of the input files we have to analyse.
+ *
+ * @author Baresi Marco
  */
 public class XMLParser {
     private XMLStreamReader xmlReader = null;
+
     /**
      * This method gets the .xml file (that is fileName) we need to parse.
-     * @param fileName
+     *
+     * @param fileName name of xml file
      */
     public XMLParser(String fileName) {
         try {
@@ -31,6 +33,7 @@ public class XMLParser {
 
     /**
      * Parsing the file xml that we need to parse.
+     *
      * @param obj is a generic object.
      * @param <T> is a generic type (T stands for "Thing").
      * @return objList (the parsed list).
@@ -65,7 +68,8 @@ public class XMLParser {
              */
             switch (xmlReader.getEventType()) {
                 /* XMLStreamConstants.START_DOCUMENT = 7, we are starting the parsing. */
-                case XMLStreamConstants.START_DOCUMENT -> {}
+                case XMLStreamConstants.START_DOCUMENT -> {
+                }
 
                 /* XMLStreamConstants.START_ELEMENT = 1, we read an opening tag. */
                 case XMLStreamConstants.START_ELEMENT -> {
@@ -75,7 +79,7 @@ public class XMLParser {
                     for (int i = 0; i < xmlReader.getAttributeCount(); i++) {
                         String name = xmlReader.getAttributeLocalName(i);
                         String value = xmlReader.getAttributeValue(i);
-                        XMLTag = elementName != null ? new XMLTag(elementName, name, value) : new XMLTag(name, value);
+                        XMLTag = elementName != null ? new XMLTag(elementName, new XMLAttribute(name, value)) : new XMLTag(name, value);
                         t.setAttribute(XMLTag);
                     }
                 }
@@ -93,7 +97,8 @@ public class XMLParser {
                 }
 
                 /* XMLStreamConstants.COMMENT = 5, reading a comment. We will add comment management in the future. */
-                case XMLStreamConstants.COMMENT -> {}
+                case XMLStreamConstants.COMMENT -> {
+                }
 
                 /* XMLStreamConstants.CHARACTERS  = 4, reading a text inside an element. */
                 case XMLStreamConstants.CHARACTERS -> {

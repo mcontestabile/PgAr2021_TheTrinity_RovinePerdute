@@ -1,6 +1,8 @@
-package it.unibs.fp.the_trinity.Graph;
+package it.unibs.fp.the_trinity.objects;
 
-import it.unibs.fp.the_trinity.Interfaces.GraphNode;
+import it.unibs.fp.the_trinity.graph_utils.GraphNode;
+
+import java.util.StringJoiner;
 
 /**
  * We also need a wrapper around our nodes that carries some extra information.
@@ -9,21 +11,34 @@ import it.unibs.fp.the_trinity.Interfaces.GraphNode;
  * to store the current state of each node for the current route computation.
  * We've given this a simple constructor for the common case, when we're first
  * visiting a node and have no additional information about it yet
+ *
  * @param <T>
- *
- *
  * @author Contestabile Martina
  */
-public class RouteNode<T extends GraphNode> implements Comparable<RouteNode> {
+
+class RouteNode<T extends GraphNode> implements Comparable<RouteNode<T>> {
     private final T current;
     private T previous;
     private double routeScore;
     private double estimatedScore;
 
+    /**
+     * Constructor
+     *
+     * @param current the current node.
+     */
     RouteNode(T current) {
         this(current, null, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
     }
 
+    /**
+     * Constructor
+     *
+     * @param current        the current node.
+     * @param previous       the previous node.
+     * @param routeScore     the route's score between two nodes.
+     * @param estimatedScore the estimated score.
+     */
     RouteNode(T current, T previous, double routeScore, double estimatedScore) {
         this.current = current;
         this.previous = previous;
@@ -31,31 +46,33 @@ public class RouteNode<T extends GraphNode> implements Comparable<RouteNode> {
         this.estimatedScore = estimatedScore;
     }
 
-    public T getCurrent() {
+    //Getters
+    T getCurrent() {
         return current;
     }
 
-    public T getPrevious() {
+    T getPrevious() {
         return previous;
     }
 
-    public double getRouteScore() {
+    double getRouteScore() {
         return routeScore;
     }
 
-    public double getEstimatedScore() {
+    double getEstimatedScore() {
         return estimatedScore;
     }
 
-    public void setPrevious(T previous) {
+    //Setters
+    void setPrevious(T previous) {
         this.previous = previous;
     }
 
-    public void setRouteScore(double routeScore) {
+    void setRouteScore(double routeScore) {
         this.routeScore = routeScore;
     }
 
-    public void setEstimatedScore(double estimatedScore) {
+    void setEstimatedScore(double estimatedScore) {
         this.estimatedScore = estimatedScore;
     }
 
@@ -64,17 +81,19 @@ public class RouteNode<T extends GraphNode> implements Comparable<RouteNode> {
      * them by the estimated score as part of the algorithm. This means
      * the addition of a compareTo() method to fulfill the requirements
      * of the Comparable interface.
+     *
      * @param other the route we are comparing to.
      * @return the shortest route.
      */
     @Override
     public int compareTo(RouteNode other) {
-        if (this.estimatedScore > other.estimatedScore) {
-            return 1;
-        } else if (this.estimatedScore < other.estimatedScore) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Double.compare(this.estimatedScore, other.estimatedScore);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", RouteNode.class.getSimpleName() + "[", "]").add("current=" + current)
+                .add("previous=" + previous).add("routeScore=" + routeScore).add("estimatedScore=" + estimatedScore)
+                .toString();
     }
 }

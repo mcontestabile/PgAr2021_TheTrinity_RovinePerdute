@@ -1,4 +1,4 @@
-package it.unibs.fp.the_trinity.Utilities;
+package it.unibs.fp.the_trinity.utilities;
 
 public class Time {
     public static final int LOW_MILLIS_PAUSE = 500;

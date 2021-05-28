@@ -1,4 +1,4 @@
-package it.unibs.fp.the_trinity.Interfaces;
+package it.unibs.fp.the_trinity.graph_utils;
 
 /**
  * We represent our individual nodes with this interface called GraphNode.
